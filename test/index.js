@@ -8,8 +8,8 @@ const
 	sinon = require('sinon');
 
 const
-	envOr = require('../../'),
-	log = require('../../src/log');
+	envOr = require('../'),
+	log = require('../src/log');
 
 chai.use(require('sinon-chai'));
 

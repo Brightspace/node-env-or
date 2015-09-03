@@ -1,26 +1,24 @@
 {
-  "private": true,
-  "name": "@d2l/node-env-or",
+  "name": "@d2l/env-or",
   "version": "0.0.0",
   "description": "Interface for process.env variables that allows setting a default value if none is set",
   "main": "src/index.js",
   "scripts": {
     "check-style": "jscs . && jshint .",
     "start": "node ./",
-    "test": "npm run check-style && npm run test-unit",
-    "test-unit": "export NODE_ENV=test; istanbul cover --dir ./coverage/unit --root src/ node_modules/.bin/_mocha -- --recursive ./test/unit || node_modules/.bin/mocha -R spec --recursive ./test/unit",
-    "posttest": "istanbul report text-summary lcov",
-    "report-cov": "istanbul report lcovonly && coveralls < ./coverage/lcov.info"
+    "test": "npm run check-style && npm run test-no-style",
+    "test-no-style": "export NODE_ENV=test; istanbul cover --dir ./coverage --root src/ node_modules/.bin/_mocha ./test || node_modules/.bin/mocha -R spec ./test",
+    "posttest": "istanbul report text-summary lcov"
   },
   "author": "D2L Corporation",
   "license": "",
-  "homepage": "https://github.com/Brightspace/node-env-or",
+  "homepage": "https://github.com/Brightspace/env-or",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Brightspace/node-env-or.git"
+    "url": "https://github.com/Brightspace/env-or.git"
   },
   "bugs": {
-    "url": "https://github.com/Brightspace/node-env-or/issues"
+    "url": "https://github.com/Brightspace/env-or/issues"
   },
   "devDependencies": {
     "chai": "^3.2.0",
