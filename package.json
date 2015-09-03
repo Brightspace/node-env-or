@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "node-env-or",
+  "name": "@d2l/node-env-or",
   "version": "0.0.0",
   "description": "Interface for process.env variables that allows setting a default value if none is set",
   "main": "src/index.js",
