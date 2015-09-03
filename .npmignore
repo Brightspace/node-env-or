@@ -13,4 +13,4 @@ node_modules
 travis-deploy.sh
 .npmrc*
 
-spec
+test
