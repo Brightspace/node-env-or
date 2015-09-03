@@ -1,0 +1,37 @@
+{
+  "private": true,
+  "name": "node-env-or",
+  "version": "0.0.0",
+  "description": "Interface for process.env variables that allows setting a default value if none is set",
+  "main": "src/index.js",
+  "scripts": {
+    "check-style": "jscs . && jshint .",
+    "start": "node ./",
+    "test": "npm run check-style && npm run test-unit",
+    "test-unit": "export NODE_ENV=test; istanbul cover --dir ./coverage/unit --root src/ node_modules/.bin/_mocha -- --recursive ./test/unit || node_modules/.bin/mocha -R spec --recursive ./test/unit",
+    "posttest": "istanbul report text-summary lcov",
+    "report-cov": "istanbul report lcovonly && coveralls < ./coverage/lcov.info"
+  },
+  "author": "D2L Corporation",
+  "license": "",
+  "homepage": "https://github.com/Brightspace/node-env-or",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Brightspace/node-env-or.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Brightspace/node-env-or/issues"
+  },
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "istanbul": "^0.3.19",
+    "jscs": "^2.1.1",
+    "jshint": "^2.8.0",
+    "mocha": "^2.3.0",
+    "sinon": "^1.16.1",
+    "sinon-chai": "^2.8.0"
+  },
+  "dependencies": {
+    "winston": "^1.0.1"
+  }
+}

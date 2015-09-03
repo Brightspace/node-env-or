@@ -1,0 +1,16 @@
+node_modules
+
+.npmignore
+.gitignore
+*.tgz
+
+.editorconfig
+.jscs.json
+.jshintignore
+.jshintrc
+
+.travis.yml
+travis-deploy.sh
+.npmrc*
+
+spec
