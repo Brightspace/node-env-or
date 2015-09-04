@@ -12,13 +12,13 @@
   },
   "author": "D2L Corporation",
   "license": "",
-  "homepage": "https://github.com/Brightspace/env-or",
+  "homepage": "https://github.com/Brightspace/node-env-or",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Brightspace/env-or.git"
+    "url": "https://github.com/Brightspace/node-env-or.git"
   },
   "bugs": {
-    "url": "https://github.com/Brightspace/env-or/issues"
+    "url": "https://github.com/Brightspace/node-env-or/issues"
   },
   "devDependencies": {
     "chai": "^3.2.0",
