@@ -1,6 +1,6 @@
 # node-env-or
 
-[![Build Status](https://magnum.travis-ci.com/Brightspace/node-env-or.svg?token=Cab9cPiYKusHs1TWpuUv)](https://magnum.travis-ci.com/Brightspace/node-env-or)
+[![Build Status](https://magnum.travis-ci.com/Brightspace/node-env-or.svg?token=Cab9cPiYKusHs1TWpuUv)](https://magnum.travis-ci.com/Brightspace/node-env-or) [![Coverage Status](https://coveralls.io/repos/Brightspace/node-env-or/badge.svg?branch=master&service=github&t=OBtONh)](https://coveralls.io/github/Brightspace/node-env-or?branch=master)
 
 Interface for process.env variables that allows setting a default value if none is set
 
