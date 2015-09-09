@@ -9,7 +9,33 @@ Interface for process.env variables that allows setting a default value if none 
 ```js
 const envOr = require('@d2l/env-or');
 
-const MY_VAR = envOr('MY_VAR', 'default_value');
+const NO_DEFAULT = envOr('NO_DEFAULT');
+const WITH_DEFAULT = envOr('WITH_DEFAULT', 'default_value');
+const REQUIRED_IN_PROD = envOr.requireInProd('REQUIRED_IN_PROD');
+```
+
+### API
+
+#### `envOr(String var[, String|Number|Boolean default])`
+
+Returns `process.env.var`, casted to the same type as `default` (if provided).
+
+If `default` is not provided, the String value from `process.env` will be returned (which may be `undefined`).
+
+If `default` is provided, then it will be returned if _the variable is not available_ **or** _the type conversion is not possible_.
+
+---
+
+#### `envOr.requireInProd(String var[, String|Number|Boolean default])`
+
+If `NODE_ENV` is not set to `production`, acts the same as `envOr`.
+
+If `NODE_ENV=production` and `process.env.var` is not defined, then the process will be exited.
+
+## Testing
+
+```js
+npm test
 ```
 
 ## Contributing
