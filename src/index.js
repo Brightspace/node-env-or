@@ -35,7 +35,7 @@ module.exports = function envOr (name, or, requireInProd) {
 	const noOr = requireInProd && 'production' === env.NODE_ENV;
 	if (noOr) {
 		log.error(`Accessed environment "${name}", which was unavailable. Fallbacks are not allowed in production for this variable`);
-		return process.exit(1);
+		throw new Error(`Accessed environment "${name}", which was unavailable. Fallbacks are not allowed in production for this variable`);
 	}
 
 	if (undefined !== or) {

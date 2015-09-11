@@ -164,18 +164,15 @@ describe('envOr', function () {
 				beforeEach(function () {
 					previous = process.env.NODE_ENV;
 					process.env.NODE_ENV = 'production';
-					sinon.stub(process, 'exit');
 				});
 
 				afterEach(function () {
 					process.env.NODE_ENV = previous;
-					process.exit.restore();
 				});
 
 				it('should exit the process', function () {
 					setAs(undefined);
-					get.requireInProd(or);
-					expect(process.exit).to.have.been.calledWith(1);
+					expect(get.requireInProd.bind(undefined, or)).to.throw(/Fallbacks are not allowed/);
 					expect(log.error).to.have.been.calledWithMatch('Fallbacks are not allowed');
 				});
 			});
