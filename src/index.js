@@ -46,6 +46,8 @@ module.exports = function envOr (name, or, requireInProd) {
 	log.warn(`Accessed environment "${name}", which was unavailable. No fallback provided.`);
 };
 
+module.exports.logger = log;
+
 module.exports.requireInProd = function envNoOr (name, or) {
 	return module.exports(name, or, true);
 };
