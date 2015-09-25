@@ -8,7 +8,8 @@
     "start": "node ./",
     "test": "npm run check-style && npm run test-no-style",
     "test-no-style": "export NODE_ENV=test; istanbul cover --dir ./coverage --root src/ node_modules/.bin/_mocha ./test || node_modules/.bin/mocha -R spec ./test",
-    "posttest": "istanbul report text-summary lcov"
+    "posttest": "istanbul report text-summary lcov",
+    "report-cov": "istanbul report lcovonly && coveralls < ./coverage/lcov.info"
   },
   "author": "D2L Corporation",
   "license": "",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "chai": "^3.2.0",
+    "coveralls": "^2.11.4",
     "istanbul": "^0.3.19",
     "jscs": "^2.1.1",
     "jshint": "^2.8.0",
