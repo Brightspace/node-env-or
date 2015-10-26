@@ -4,7 +4,7 @@ const log = require('./log');
 
 const env = process.env;
 
-module.exports = function envOr (name, or, requireInProd) {
+module.exports = function envOr(name, or, requireInProd) {
 	let val = env[name];
 
 	if ('undefined' !== val && undefined !== val && 'undefined' !== typeof val) {
@@ -46,6 +46,6 @@ module.exports = function envOr (name, or, requireInProd) {
 	log.warn(`Accessed environment "${name}", which was unavailable. No fallback provided.`);
 };
 
-module.exports.requireInProd = function envNoOr (name, or) {
+module.exports.requireInProd = function envNoOr(name, or) {
 	return module.exports(name, or, true);
 };

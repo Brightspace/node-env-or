@@ -4,7 +4,7 @@
   "description": "Interface for process.env variables that allows setting a default value if none is set",
   "main": "src/index.js",
   "scripts": {
-    "check-style": "jscs . && jshint .",
+    "check-style": "eslint --ignore-path .gitignore .",
     "start": "node ./",
     "test": "npm run check-style && npm run test-no-style",
     "test-no-style": "export NODE_ENV=test; istanbul cover --dir ./coverage --root src/ node_modules/.bin/_mocha ./test || node_modules/.bin/mocha -R spec ./test",
@@ -24,14 +24,21 @@
   "devDependencies": {
     "chai": "^3.2.0",
     "coveralls": "^2.11.4",
+    "eslint": "^1.7.3",
+    "eslint-config-brightspace": "0.0.3",
     "istanbul": "^0.3.19",
-    "jscs": "^2.1.1",
-    "jshint": "^2.8.0",
     "mocha": "^2.3.0",
     "sinon": "^1.16.1",
     "sinon-chai": "^2.8.0"
   },
   "dependencies": {
     "winston": "^1.0.1"
+  },
+  "eslintConfig": {
+    "extends": "brightspace",
+    "env": {
+      "es6": true,
+      "node": true
+    }
   }
 }
