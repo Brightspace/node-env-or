@@ -1,5 +1,5 @@
 {
-  "name": "@d2l/env-or",
+  "name": "env-or",
   "version": "1.0.0",
   "description": "Interface for process.env variables that allows setting a default value if none is set",
   "main": "src/index.js",
