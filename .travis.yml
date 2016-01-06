@@ -2,8 +2,6 @@ sudo: false
 language: node_js
 node_js:
 - iojs-v3
-before_install:
-- mv .npmrc.ro-travisci-npm ~/.npmrc
 after_success:
 - npm run report-cov
 deploy:
