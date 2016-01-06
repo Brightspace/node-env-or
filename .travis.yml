@@ -6,4 +6,3 @@ before_install:
   - mv .npmrc.ro-travisci-npm ~/.npmrc
 after_success:
   - npm run report-cov
-  - ./travis-deploy.sh

@@ -8,7 +8,6 @@ coverage
 .editorconfig
 
 .travis.yml
-travis-deploy.sh
 .npmrc*
 
 test
