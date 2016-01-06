@@ -1,8 +1,16 @@
 sudo: false
 language: node_js
 node_js:
-  - iojs-v3
+- iojs-v3
 before_install:
-  - mv .npmrc.ro-travisci-npm ~/.npmrc
+- mv .npmrc.ro-travisci-npm ~/.npmrc
 after_success:
-  - npm run report-cov
+- npm run report-cov
+deploy:
+  provider: npm
+  email: d2ltravisdeploy@d2l.com
+  api_key:
+    secure: BtLIyTE4DSBXmz1U/JnWA9wuOu9GtiGJYFUoSE8+seqs1CyAkzT0y692Fr8Aja0MFdpBic9bfQpvUj4OH3qgsK203csGeUW0mXPCjQr8b7ZrTnhFH3ltdVqbVxwJNQDAKuOp5UFYbtERLPzzOGU89k7nbq10sr6iqSfCMKfbmr8EJLofY9vJZADo1AWf338GK5AHE6fSCEUOcaNG6rz9ToqN8k2S7OyaKsCf+gXo3qtDxZoIoBCMQeoVNdKFBq4onmMt656tTKQAiJB62KRCUnD5EhtcnBTr2fzSEtRwOkbE0kiAIC7KMblIuJClqmIVnp0VkiAyp5JNsIcXRZgRBPnDqmaVHtRX0aaeGeBWTvJuoJzwOXWmoodBO5aIJe2oMLaE9tvDrkgo3s6wWAm/fsfE8l9s31TmPBzdnz47vLUUy3k8CKSBRaPFa+Iv+gbvajUjZbuieKVew+gZIZM5+y4tOceQOS39oIkxVEaSf554iVNn+fqsbcoAvJTan358Lr/7C4G02UfVkPUQe4stanr7MGXWcUC8TEEBrHukUSZMOs5JOa+kG+O8/a19HooDZIc/AvhDZ7hdZWbRYBsmKqHRUaRI5LNDskiDfXa7/unnuCu8ls44kn5y0itbyXT5wrTs6kQv789D4lb1T0SPaavaZ3XDjYWAi6febMqdEBs=
+  on:
+    tags: true
+    repo: Brightspace/node-env-or
