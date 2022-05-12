@@ -12,9 +12,7 @@
     "check-style": "eslint --ignore-path .gitignore .",
     "start": "node ./",
     "test": "npm run check-style && npm run test-no-style",
-    "test-no-style": "export NODE_ENV=test; istanbul cover --dir ./coverage --root src/ node_modules/.bin/_mocha ./test || node_modules/.bin/mocha -R spec ./test",
-    "posttest": "istanbul report text-summary lcov",
-    "report-cov": "istanbul report lcovonly && coveralls < ./coverage/lcov.info"
+    "test-no-style": "export NODE_ENV=test; mocha ./test"
   },
   "author": "D2L Corporation",
   "license": "Apache-2.0",
@@ -28,10 +26,8 @@
   },
   "devDependencies": {
     "chai": "^3.2.0",
-    "coveralls": "^2.11.4",
     "eslint": "^1.7.3",
     "eslint-config-brightspace": "0.0.3",
-    "istanbul": "^0.3.19",
     "mocha": "^2.3.0",
     "sinon": "^1.16.1",
     "sinon-chai": "^2.8.0"
