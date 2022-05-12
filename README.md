@@ -7,7 +7,7 @@ Interface for process.env variables that allows setting a default value if none 
 ## Usage
 
 ```js
-const envOr = require('@d2l/env-or');
+const envOr = require('env-or');
 
 const NO_DEFAULT = envOr('NO_DEFAULT');
 const WITH_DEFAULT = envOr('WITH_DEFAULT', 'default_value');
@@ -30,7 +30,27 @@ If `default` is provided, then it will be returned if _the variable is not avail
 
 If `NODE_ENV` is not set to `production`, acts the same as `envOr`.
 
-If `NODE_ENV=production` and `process.env.var` is not defined, then the process will be exited.
+If `NODE_ENV=production` and `process.env.var` is not defined, then an error will be thrown.
+
+#### `envOr.on('access', Function listener)`
+
+A listener can be set for the `'access'` event to be notified of the results of environment accesses.
+
+```js
+envOr.on('access', console.log);
+envOr('MY_FEATURE_ENABLED', true);
+
+EnvironmentAccessedEvent {
+  name: 'MY_FEATURE_ENABLED',
+  value: true,
+  present: false,
+  required: false
+}
+```
+
+#### `envOr.removeListener('access', Function listener)`
+
+Remove a listener for environment accesses that was added with `on`.
 
 ## Testing
 

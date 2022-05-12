@@ -1,11 +1,24 @@
 'use strict';
 
-const log = require('./log');
+const EventEmitter = require('events');
+
+const emitter = new EventEmitter();
 
 const env = process.env;
 
+class EnvironmentAccessedEvent {
+	constructor(name, value, present, required) {
+		this.name = name;
+		this.value = value;
+		this.present = present;
+		this.required = required;
+	}
+}
+
 module.exports = function envOr(name, or, requireInProd) {
 	let val = env[name];
+
+	const noOr = Boolean(requireInProd && 'production' === env.NODE_ENV);
 
 	if ('undefined' !== val && undefined !== val && 'undefined' !== typeof val) {
 		let useVal = false;
@@ -27,25 +40,47 @@ module.exports = function envOr(name, or, requireInProd) {
 		}
 
 		if (useVal) {
-			log.info(`Accessed environment "${name}", got "${val}" (${typeof val})`);
+			emitter.emit('access', new EnvironmentAccessedEvent(
+				name,
+				val,
+				true,
+				noOr
+			));
 			return val;
 		}
 	}
 
-	const noOr = requireInProd && 'production' === env.NODE_ENV;
 	if (noOr) {
-		log.error(`Accessed environment "${name}", which was unavailable. Fallbacks are not allowed in production for this variable`);
+		emitter.emit('access', new EnvironmentAccessedEvent(
+			name,
+			undefined,
+			false,
+			noOr
+		));
 		throw new Error(`Accessed environment "${name}", which was unavailable. Fallbacks are not allowed in production for this variable`);
 	}
 
 	if (undefined !== or) {
-		log.warn(`Accessed environment "${name}", which was unavailable. "${or}" (${typeof or}) used instead.`);
+		emitter.emit('access', new EnvironmentAccessedEvent(
+			name,
+			or,
+			false,
+			noOr
+		));
 		return or;
 	}
 
-	log.warn(`Accessed environment "${name}", which was unavailable. No fallback provided.`);
+	emitter.emit('access', new EnvironmentAccessedEvent(
+		name,
+		undefined,
+		false,
+		noOr
+	));
 };
 
 module.exports.requireInProd = function envNoOr(name, or) {
 	return module.exports(name, or, true);
 };
+
+module.exports.on = emitter.on.bind(emitter);
+module.exports.removeListener = emitter.removeListener.bind(emitter);
