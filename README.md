@@ -1,7 +1,6 @@
 # node-env-or
 
-[![Build Status](https://travis-ci.org/Brightspace/node-env-or.svg?branch=master)](https://travis-ci.org/Brightspace/node-env-or)
-[![Coverage Status](https://coveralls.io/repos/Brightspace/node-env-or/badge.svg?branch=master&service=github&t=OBtONh)](https://coveralls.io/github/Brightspace/node-env-or?branch=master)
+[![Build status][https://github.com/Brightspace/node-env-or/actions/workflows/build.yml/badge.svg?query=+branch%3Amain]][https://github.com/Brightspace/node-env-or/actions/workflows/build.yml?query=+branch%3Amain]
 
 Interface for process.env variables that allows setting a default value if none is set
 

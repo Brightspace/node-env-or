@@ -3,13 +3,16 @@
   "version": "1.0.2",
   "description": "Interface for process.env variables that allows setting a default value if none is set",
   "main": "src/index.js",
+  "files": [
+    "src",
+    "LICENSE",
+    "README.md"
+  ],
   "scripts": {
     "check-style": "eslint --ignore-path .gitignore .",
     "start": "node ./",
     "test": "npm run check-style && npm run test-no-style",
-    "test-no-style": "export NODE_ENV=test; istanbul cover --dir ./coverage --root src/ node_modules/.bin/_mocha ./test || node_modules/.bin/mocha -R spec ./test",
-    "posttest": "istanbul report text-summary lcov",
-    "report-cov": "istanbul report lcovonly && coveralls < ./coverage/lcov.info"
+    "test-no-style": "export NODE_ENV=test; mocha ./test"
   },
   "author": "D2L Corporation",
   "license": "Apache-2.0",
@@ -22,14 +25,12 @@
     "url": "https://github.com/Brightspace/node-env-or/issues"
   },
   "devDependencies": {
-    "chai": "^3.2.0",
-    "coveralls": "^2.11.4",
-    "eslint": "^1.7.3",
-    "eslint-config-brightspace": "0.0.3",
-    "istanbul": "^0.3.19",
-    "mocha": "^2.3.0",
-    "sinon": "^1.16.1",
-    "sinon-chai": "^2.8.0"
+    "chai": "^4.3.6",
+    "eslint": "^8.15.0",
+    "eslint-config-brightspace": "^0.17.0",
+    "mocha": "^10.0.0",
+    "sinon": "^14.0.0",
+    "sinon-chai": "^3.7.0"
   },
   "dependencies": {
     "winston": "^1.0.1"
