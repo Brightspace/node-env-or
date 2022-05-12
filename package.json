@@ -3,6 +3,11 @@
   "version": "1.0.2",
   "description": "Interface for process.env variables that allows setting a default value if none is set",
   "main": "src/index.js",
+  "files": [
+    "src",
+    "LICENSE",
+    "README.md"
+  ],
   "scripts": {
     "check-style": "eslint --ignore-path .gitignore .",
     "start": "node ./",
