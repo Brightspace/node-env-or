@@ -33,7 +33,7 @@ describe('envOr', function() {
 	};
 
 	beforeEach(function() {
-		sandbox = sinon.sandbox.create();
+		sandbox = sinon.createSandbox();
 		sandbox.stub(log, 'error');
 		sandbox.stub(log, 'info');
 		sandbox.stub(log, 'warn');
