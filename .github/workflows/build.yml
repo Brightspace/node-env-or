@@ -30,7 +30,6 @@ jobs:
       - uses: Brightspace/setup-node@main
         with:
           node-version: ${{ matrix.node }}
-          registry-url: 'https://registry.npmjs.org'
 
       - name: Install Dependencies
         run: npm install
