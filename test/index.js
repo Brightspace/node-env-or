@@ -1,6 +1,6 @@
-/* global afterEach, beforeEach, describe, it */
-
 'use strict';
+
+const { afterEach, beforeEach, describe, it } = require('node:test');
 
 const
 	chai = require('chai'),
@@ -9,7 +9,9 @@ const
 
 const envOr = require('../');
 
-chai.use(require('sinon-chai'));
+chai.use(require('sinon-chai').default);
+
+process.env.NODE_ENV = 'test';
 
 describe('envOr', function() {
 	let listener;

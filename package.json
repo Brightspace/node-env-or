@@ -12,10 +12,9 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "check-style": "eslint --ignore-path .gitignore .",
-    "start": "node ./",
+    "check-style": "eslint --ignore-pattern eslint.config.mjs .",
     "test": "npm run check-style && npm run test-no-style",
-    "test-no-style": "export NODE_ENV=test; mocha ./test"
+    "test-no-style": "node --test test/*.js"
   },
   "author": "D2L Corporation",
   "license": "Apache-2.0",
@@ -28,18 +27,10 @@
     "url": "https://github.com/Brightspace/node-env-or/issues"
   },
   "devDependencies": {
-    "chai": "^4.3.6",
-    "eslint": "^8.15.0",
-    "eslint-config-brightspace": "^0.17.0",
-    "mocha": "^10.0.0",
-    "sinon": "^14.0.0",
-    "sinon-chai": "^3.7.0"
-  },
-  "eslintConfig": {
-    "extends": "brightspace",
-    "env": {
-      "es6": true,
-      "node": true
-    }
+    "chai": "^6.3.0",
+    "eslint": "^10.13.0",
+    "eslint-config-brightspace": "^4.0.0",
+    "sinon": "^22.1.0",
+    "sinon-chai": "^4.0.1"
   }
 }
